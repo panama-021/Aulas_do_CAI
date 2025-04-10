@@ -20,6 +20,7 @@ Bounce buttonB = Bounce();
 Bounce buttonC = Bounce();
 
 void botaoSeta();
+void LCD();
 
 bool atualizacao = 0;
 bool modoSelecao = 1;
@@ -102,7 +103,8 @@ void botaoSeta()
 
         if (brilhoRed > 100)
           brilhoRed = 100;
-        Serial.println(brilhoRed);
+        lcd.setCursor(12, 0);
+        lcd.printf("%d%", brilhoRed);
         break;
 
       case 1:
@@ -110,7 +112,8 @@ void botaoSeta()
 
         if (brilhoYellow > 100)
           brilhoYellow = 100;
-        Serial.println(brilhoYellow);
+        lcd.setCursor(12, 1);
+        lcd.printf("%d%", brilhoYellow);
         break;
 
       case 2:
@@ -118,7 +121,8 @@ void botaoSeta()
 
         if (brilhoGreen > 100)
           brilhoGreen = 100;
-        Serial.println(brilhoGreen);
+        lcd.setCursor(12, 2);
+        lcd.printf("%d%", brilhoGreen);
         break;
 
       case 3:
@@ -126,7 +130,8 @@ void botaoSeta()
 
         if (brilhoWhite > 100)
           brilhoWhite = 100;
-        Serial.println(brilhoWhite);
+        lcd.setCursor(12, 3);
+        lcd.printf("%d%", brilhoWhite);
         break;
       }
     }
@@ -150,7 +155,8 @@ void botaoSeta()
 
         if (brilhoRed < 0)
           brilhoRed = 0;
-        Serial.println(brilhoRed);
+        lcd.setCursor(12, 0);
+        lcd.printf("%d%", brilhoRed);
         break;
 
       case 1:
@@ -158,7 +164,8 @@ void botaoSeta()
 
         if (brilhoYellow < 0)
           brilhoYellow = 0;
-        Serial.println(brilhoYellow);
+        lcd.setCursor(12, 1);
+        lcd.printf("%d%", brilhoYellow);
         break;
 
       case 2:
@@ -166,7 +173,8 @@ void botaoSeta()
 
         if (brilhoGreen < 0)
           brilhoGreen = 0;
-        Serial.println(brilhoGreen);
+        lcd.setCursor(12, 2);
+        lcd.printf("%d%", brilhoGreen);
         break;
 
       case 3:
@@ -174,7 +182,8 @@ void botaoSeta()
 
         if (brilhoWhite < 0)
           brilhoWhite = 0;
-        Serial.println(brilhoWhite);
+        lcd.setCursor(12, 3);
+        lcd.printf("%d%", brilhoWhite);
         break;
       }
     }
@@ -187,54 +196,58 @@ void botaoSeta()
   }
 
   if (atualizacao)
-  {
-    switch (buttonContador)
-    {
-    case 0:
-      lcd.setCursor(0, 0);
-      lcd.print(">");
-      lcd.setCursor(0, 1);
-      lcd.print(" ");
-      lcd.setCursor(0, 2);
-      lcd.print(" ");
-      lcd.setCursor(0, 3);
-      lcd.print(" ");
-      break;
-
-    case 1:
-      lcd.setCursor(0, 0);
-      lcd.print(" ");
-      lcd.setCursor(0, 1);
-      lcd.print(">");
-      lcd.setCursor(0, 2);
-      lcd.print(" ");
-      lcd.setCursor(0, 3);
-      lcd.print(" ");
-      break;
-
-    case 2:
-      lcd.setCursor(0, 0);
-      lcd.print(" ");
-      lcd.setCursor(0, 1);
-      lcd.print(" ");
-      lcd.setCursor(0, 2);
-      lcd.print(">");
-      lcd.setCursor(0, 3);
-      lcd.print(" ");
-      break;
-
-    case 3:
-      lcd.setCursor(0, 0);
-      lcd.print(" ");
-      lcd.setCursor(0, 1);
-      lcd.print(" ");
-      lcd.setCursor(0, 2);
-      lcd.print(" ");
-      lcd.setCursor(0, 3);
-      lcd.print(">");
-      break;
-    }
-  }
+    LCD();
 
   atualizacao = 0;
+}
+
+void LCD()
+{
+
+  switch (buttonContador)
+  {
+  case 0:
+    lcd.setCursor(0, 0);
+    lcd.print(">");
+    lcd.setCursor(0, 1);
+    lcd.print(" ");
+    lcd.setCursor(0, 2);
+    lcd.print(" ");
+    lcd.setCursor(0, 3);
+    lcd.print(" ");
+    break;
+
+  case 1:
+    lcd.setCursor(0, 0);
+    lcd.print(" ");
+    lcd.setCursor(0, 1);
+    lcd.print(">");
+    lcd.setCursor(0, 2);
+    lcd.print(" ");
+    lcd.setCursor(0, 3);
+    lcd.print(" ");
+    break;
+
+  case 2:
+    lcd.setCursor(0, 0);
+    lcd.print(" ");
+    lcd.setCursor(0, 1);
+    lcd.print(" ");
+    lcd.setCursor(0, 2);
+    lcd.print(">");
+    lcd.setCursor(0, 3);
+    lcd.print(" ");
+    break;
+
+  case 3:
+    lcd.setCursor(0, 0);
+    lcd.print(" ");
+    lcd.setCursor(0, 1);
+    lcd.print(" ");
+    lcd.setCursor(0, 2);
+    lcd.print(" ");
+    lcd.setCursor(0, 3);
+    lcd.print(">");
+    break;
+  }
 }
