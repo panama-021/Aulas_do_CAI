@@ -38,7 +38,7 @@ void setup()
     if (palavra3.equals("HOJE EH QUINTA") == 1) //retorna verdadeiro se forem iguais
       Serial.println("sao iguais");
   
-    if (palavra3.equalsIgnoreCase("HOJE EH QUINTA") == 1) //retorna verdadeiro se forem iguais  ignorando letras maiusculas
+    if (palavra3.equalsIgnoreCase("hoje eh quinta") == 1) //retorna verdadeiro se forem iguais  ignorando letras maiusculas
       Serial.println("sao iguais");
   
     if (palavra3.startsWith("HOJE") == 1) //retorna verdadeiro se comacar com determinado texto
